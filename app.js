@@ -6,6 +6,7 @@ const cors = require("cors");
 // const FileStore = require("session-file-store")(session);
 const { criminalRouters, userRouter } = require("./routes");
 const passport = require("passport");
+const cors = require("cors")
 
 require("dotenv").config();
 const api = process.env.API_URL;
@@ -30,6 +31,7 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use(cors)
 app.use(morgan("tiny"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
